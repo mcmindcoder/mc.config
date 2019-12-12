@@ -1,0 +1,7 @@
+---
+
+- name: 'Run: apt update upgrade'
+  become: true
+  apt:
+    upgrade: yes
+    update_cache: yes
