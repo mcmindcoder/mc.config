@@ -1,0 +1,111 @@
+---
+
+# Add ppa
+
+- name: 'Add deb repo ppa:deadsnakes/ppa'
+  apt_repository:
+    repo: ppa:deadsnakes/ppa
+    state: present
+    update_cache: yes
+
+
+# Install python packages
+
+- name: 'Install python3.7 packages'
+  apt:
+    package: ['software-properties-common', 'python3.7', 'python3.7-doc', 'python3.7-examples', 'python3-pip']
+    state: present
+    allow_unauthenticated: no
+    update_cache: yes
+
+
+# Info
+
+- name: 'Run: python3.7 --version'
+  command: 'python3.7 --version'
+
+- name: 'Run: pip3 --version'
+  command: 'pip3 --version'
+
+
+# Remove old python symlinks
+
+- name: 
+  local_action: stat path=/usr/bin/python
+  register: file
+
+- name: 'Backup /usr/bin/python'
+  copy:
+    src: /usr/bin/python
+    dest: /usr/bin/_python.bkp
+  when: file.stat.exists
+
+- name: 'Remove /usr/bin/python'
+  file:
+    path: /usr/bin/python
+    state: absent
+  when: file.stat.exists
+
+
+- name: 
+  local_action: stat path=/usr/bin/pip
+  register: file
+
+- name: 'Backup /usr/bin/pip'
+  copy:
+    src: /usr/bin/pip
+    dest: /usr/bin/_pip.bkp
+  when: file.stat.exists
+
+- name: 'Remove /usr/bin/pip'
+  file:
+    path: /usr/bin/pip
+    state: absent
+  when: file.stat.exists
+
+
+- name: 
+  local_action: stat path=/usr/local/bin/pip
+  register: file
+
+- name: 'Backup /usr/local/bin/pip'
+  copy:
+    src: /usr/local/bin/pip
+    dest: /usr/local/bin/_pip.bkp
+  when: file.stat.exists
+
+- name: 'Remove /usr/local/bin/pip'
+  file:
+    path: /usr/local/bin/pip
+    state: absent
+  when: file.stat.exists
+
+
+# Create python 3.7 symlinks
+
+- name: 'Create symlink /usr/bin/python -> /usr/bin/python3.7'
+  file:
+    src: /usr/bin/python3.7
+    dest: /usr/bin/python
+    state: link
+  
+- name: 'Create symlink /usr/bin/pip -> /usr/bin/pip3'
+  file:
+    src: /usr/bin/pip3
+    dest: /usr/bin/pip
+    state: link
+
+- name: 'Create symlink /usr/local/bin/pip -> /usr/bin/pip3'
+  file:
+    src: /usr/bin/pip3
+    dest: /usr/local/bin/pip
+    state: link
+
+
+# Info 
+
+- name: 'Run: python --version'
+  command: 'python --version'
+
+- name: 'Run: pip --version'
+  command: 'pip --version'
