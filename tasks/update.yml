@@ -1,0 +1,15 @@
+---
+
+- name: 'install tuptime.'
+  apt:
+    package: ['tuptime', 'vim-nox']
+    state: present
+    allow_unauthenticated: no
+    update_cache: yes
+
+- name: 'uninstall tuptime.'
+  apt:
+    package: ['tuptime', 'vim-nox']
+    state: absent
+    allow_unauthenticated: no
+    update_cache: yes
