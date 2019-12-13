@@ -90,25 +90,40 @@
   when: file.stat.exists
 
 
+# Create python 3.7 altenatives
+
+- name: 'Create linux alternative /usr/bin/python -> /usr/bin/python3.7'
+  command: update-alternatives --install '/usr/bin/python' python '/usr/bin/python2.7' 20
+  command: update-alternatives --install '/usr/bin/python' python '/usr/bin/python3.7' 30
+  
+- name: 'Create linux alternative /usr/bin/pip -> /usr/bin/pip3'
+  command: update-alternatives --install '/usr/bin/pip' pyton_pip_bin '/usr/bin/pip2' 20
+  command: update-alternatives --install '/usr/bin/pip' pyton_pip_bin '/usr/bin/pip3' 30
+  
+- name: 'Create linux alternative /usr/local/bin/pip -> /usr/bin/pip3'
+  command: update-alternatives --install '/usr/local/bin/pip' python_pip_local '/usr/bin/pip2' 20
+  command: update-alternatives --install '/usr/local/bin/pip' python_pip_local '/usr/bin/pip3' 30
+
+
 # Create python 3.7 symlinks
 
-- name: 'Create symlink /usr/bin/python -> /usr/bin/python3.7'
-  file:
-    src: /usr/bin/python3.7
-    dest: /usr/bin/python
-    state: link
+# - name: 'Create symlink /usr/bin/python -> /usr/bin/python3.7'
+#   file:
+#     src: /usr/bin/python3.7
+#     dest: /usr/bin/python
+#     state: link
   
-- name: 'Create symlink /usr/bin/pip -> /usr/bin/pip3'
-  file:
-    src: /usr/bin/pip3
-    dest: /usr/bin/pip
-    state: link
+# - name: 'Create symlink /usr/bin/pip -> /usr/bin/pip3'
+#   file:
+#     src: /usr/bin/pip3
+#     dest: /usr/bin/pip
+#     state: link
 
-- name: 'Create symlink /usr/local/bin/pip -> /usr/bin/pip3'
-  file:
-    src: /usr/bin/pip3
-    dest: /usr/local/bin/pip
-    state: link
+# - name: 'Create symlink /usr/local/bin/pip -> /usr/bin/pip3'
+#   file:
+#     src: /usr/bin/pip3
+#     dest: /usr/local/bin/pip
+#     state: link
 
 
 # Info 
