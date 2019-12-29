@@ -1,6 +1,6 @@
 ---
 
-# Add ppa
+# Add python ppa
 
 # Not always works
 # - name: 'Add deb repo ppa:deadsnakes/ppa'
@@ -12,13 +12,9 @@
 - name: 'Add deb repo ppa:deadsnakes/ppa'
   command: add-apt-repository ppa:deadsnakes/ppa -y
 
-- name: ''
-  apt:
-    update_cache: yes
 
 
-
-# Install python packages
+# Install python3.7 packages
 
 - name: 'Install python3.7 packages'
   apt:
@@ -27,14 +23,6 @@
     allow_unauthenticated: no
     update_cache: yes
 
-
-# Info
-
-- name: 'Run: python3.7 --version'
-  command: 'python3.7 --version'
-
-- name: 'Run: pip3 --version'
-  command: 'pip3 --version'
 
 
 # Remove old python symlinks
@@ -90,46 +78,62 @@
   when: file.stat.exists
 
 
-# Create python 3.7 altenatives
 
-- name: 'Create linux alternative /usr/bin/python -> /usr/bin/python3.7'
-  command: update-alternatives --install '/usr/bin/python' python '/usr/bin/python2.7' 20
-  command: update-alternatives --install '/usr/bin/python' python '/usr/bin/python3.7' 30
-  
-- name: 'Create linux alternative /usr/bin/pip -> /usr/bin/pip3'
-  command: update-alternatives --install '/usr/bin/pip' pyton_pip_bin '/usr/bin/pip2' 20
-  command: update-alternatives --install '/usr/bin/pip' pyton_pip_bin '/usr/bin/pip3' 30
-  
-- name: 'Create linux alternative /usr/local/bin/pip -> /usr/bin/pip3'
-  command: update-alternatives --install '/usr/local/bin/pip' python_pip_local '/usr/bin/pip2' 20
-  command: update-alternatives --install '/usr/local/bin/pip' python_pip_local '/usr/bin/pip3' 30
+# Create python altenatives
 
+- name: 'Create linux alternative python_pip_local -> /usr/local/bin/pip'
+  shell: |
+    update-alternatives --remove  python_pip_local /usr/local/bin/pip
+    update-alternatives --install "/usr/local/bin/pip" python_pip_local "/usr/bin/pip2" 100
+    update-alternatives --install "/usr/local/bin/pip" python_pip_local "/usr/bin/pip3" 50
+    update-alternatives --set python_pip_local "/usr/bin/pip2"
+    update-alternatives --display python_pip_local
+  ignore_errors: True
+  become: true
 
-# Create python 3.7 symlinks
+- name: 'Create linux alternative python_pip_bin -> /usr/bin/pip'
+  shell: |
+    update-alternatives --remove  python_pip_bin /usr/bin/pip
+    update-alternatives --install "/usr/bin/pip" python_pip_bin "/usr/bin/pip2" 100
+    update-alternatives --install "/usr/bin/pip" python_pip_bin "/usr/bin/pip3" 50
+    update-alternatives --set python_pip_bin "/usr/bin/pip2"
+    update-alternatives --display python_pip_bin
+  ignore_errors: True
+  become: true
 
-# - name: 'Create symlink /usr/bin/python -> /usr/bin/python3.7'
-#   file:
-#     src: /usr/bin/python3.7
-#     dest: /usr/bin/python
-#     state: link
-  
-# - name: 'Create symlink /usr/bin/pip -> /usr/bin/pip3'
-#   file:
-#     src: /usr/bin/pip3
-#     dest: /usr/bin/pip
-#     state: link
+- name: 'Create linux alternative python -> /usr/bin/python'
+  shell: |
+    update-alternatives --remove  python /usr/bin/python
+    update-alternatives --install "/usr/bin/python" python "/usr/bin/python2.7" 100
+    update-alternatives --install "/usr/bin/python" python "/usr/bin/python3.7" 50
+    update-alternatives --set python "/usr/bin/python2.7"
+    update-alternatives --display python
+  ignore_errors: True
+  become: true
 
-# - name: 'Create symlink /usr/local/bin/pip -> /usr/bin/pip3'
-#   file:
-#     src: /usr/bin/pip3
-#     dest: /usr/local/bin/pip
-#     state: link
+- name: 'Create linux alternative python3 -> /usr/bin/python3'
+  shell: |
+    update-alternatives --remove  python3 /usr/bin/python3
+    update-alternatives --install "/usr/bin/python3" python3 "/usr/bin/python3.6" 100
+    update-alternatives --install "/usr/bin/python3" python3 "/usr/bin/python3.7" 50
+    update-alternatives --set python3 "/usr/bin/python3.6"
+    update-alternatives --display python3
+  ignore_errors: True
+  become: true
+
 
 
 # Info 
 
-- name: 'Run: python --version'
-  command: 'python --version'
-
-- name: 'Run: pip --version'
-  command: 'pip --version'
+- name: 'Display python versions'
+  shell: |
+    python3.7 --version
+    echo
+    python3 --version
+    echo
+    python --version
+    echo
+    pip3 --version
+    echo
+    pip --version
+  ignore_errors: True
