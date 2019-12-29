@@ -1,0 +1,20 @@
+---
+
+- name: 'Add apt key for sublime'
+  apt_key:
+    file: files/sublime/sublimehq-pub.gpg
+    state: present
+
+
+- name: 'Install sublime source list file'
+  copy:
+    src: files/sublime/sublime-text.list
+    dest: /etc/apt/sources.list.d/sublime-text.list
+
+
+- name: 'Install sublime-text'
+  apt:
+    package: ['sublime-text']
+    state: present
+    allow_unauthenticated: no
+    update_cache: yes
