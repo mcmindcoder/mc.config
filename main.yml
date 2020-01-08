@@ -11,3 +11,4 @@
    - import_tasks: tasks/install-python37.yml
 
    - import_tasks: tasks/config-bashrc.yml
+   - import_tasks: tasks/config-git.yml

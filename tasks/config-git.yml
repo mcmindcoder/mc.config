@@ -1,0 +1,11 @@
+---
+
+- name: 'Backup .gitcongig'
+  command: mv ~/.gitconfig ~/.gitconfig.bkp
+  ignore_errors: yes
+
+- name: 'Configure .gitconfig'
+  file:
+    src: ~/mc.ansible/files/git/_gitconfig
+    path: ~/.gitconfig
+    state: link
