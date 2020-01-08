@@ -1,0 +1,19 @@
+---
+
+- name: 'Install keepass dependencies'
+  apt:
+    package: ['cmake',
+              'g++',
+              'build-essential',
+              'qtbase5-dev', 
+              'qttools5-dev',
+              'qttools5-dev-tools',
+              'libqt5svg5-dev',
+              'libgcrypt20-dev',
+              'libargon2-0-dev',
+              'libqrencode-dev',
+              'libsodium-dev',
+              'zlib1g-dev']
+    state: present
+    allow_unauthenticated: no
+    update_cache: yes
