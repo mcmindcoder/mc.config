@@ -1,0 +1,20 @@
+---
+
+- name: 'Add apt key for opera'
+  apt_key:
+    file: files/opera/opera_pub_key.gpg
+    state: present
+
+
+- name: 'Install opera source list file'
+  copy:
+    src: files/opera/opera.list
+    dest: /etc/apt/sources.list.d/opera.list
+
+
+- name: 'Install opera browser'
+  apt:
+    package: ['opera-stable']
+    state: present
+    allow_unauthenticated: no
+    update_cache: yes
