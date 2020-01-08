@@ -5,5 +5,6 @@
 
   tasks:
    - import_tasks: tasks/install-sublime.yml
+   - import_tasks: tasks/install-common.yml
    - import_tasks: tasks/system-update.yml
    - import_tasks: tasks/install-python37.yml

@@ -1,0 +1,12 @@
+---
+
+- name: 'Install common ubuntu packages'
+  apt:
+    package: ['guake', 'ssh', 'sshfs', 'xcalib', 'sublime-text', 'blueman', 'thunderbird', 'aptitude', 'audacious', 'keepassx', 'cheese', 'virtualbox', 'virtualbox-qt', 'openvpn', 'network-manager-openvpn', 'network-manager-openvpn-gnome', 'ktouch', 'winff', 'gparted', 'smplayer', 'gir1.2-gtop-2.0', 'blender', 'pepperflashplugin-nonfree']
+    state: present
+    allow_unauthenticated: no
+    update_cache: yes
+
+
+# Error packages:
+# 'thunderbird-enigmail', 'gnome-search-tool'
