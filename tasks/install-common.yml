@@ -25,7 +25,8 @@
               'blender', 
               'pepperflashplugin-nonfree',
               'dconf-editor', 
-              'dconf-tools']
+              'dconf-tools',
+              'encfs']
     state: present
     allow_unauthenticated: no
     update_cache: yes
