@@ -17,3 +17,16 @@
     state: present
     allow_unauthenticated: no
     update_cache: yes
+
+# Does not work properly
+# FixMe: Resulting menu item has no icon
+
+# - name: 'Install keepass menu launcher'
+#   copy:
+#     src: files/keepass/keepass.desktop
+#     dest: /usr/share/applications/keepass.desktop
+#     owner: root
+#     group: root
+#     mode: u=rw,g=r,o=r
+
+    
