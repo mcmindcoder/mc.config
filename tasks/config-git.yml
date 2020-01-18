@@ -6,6 +6,6 @@
 
 - name: 'Configure .gitconfig'
   file:
-    src: ~/mc.ansible/files/git/_gitconfig
+    src: '{{ base_path }}/files/git/_gitconfig'
     path: ~/.gitconfig
     state: link

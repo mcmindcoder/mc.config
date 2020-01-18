@@ -2,6 +2,8 @@
 
 - hosts: "localhost"
   become: yes
+  vars:
+    base_path: '~/mc.config'
 
   tasks:
    - import_tasks: tasks/system-update.yml

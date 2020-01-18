@@ -3,6 +3,6 @@
 - name: 'Configure .bashrc'
   lineinfile:
     path: ~/.bashrc
-    line: 'source ~/mc.ansible/files/bash/_bashrc'
+    line: 'source {{ base_path }}/files/bash/_bashrc'
     insertbefore: BOF
     create: yes
