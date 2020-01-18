@@ -14,6 +14,8 @@ guake --new-tab=tab3 -r Tab3
 guake -e pwd
 guake -e 'ls -la'
 
+guake -s 0
+
 
 
 
