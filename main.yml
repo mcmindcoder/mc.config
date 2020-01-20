@@ -4,6 +4,7 @@
   become: yes
   vars:
     base_path: '~/mc.config'
+    user: 'master'
 
   tasks:
    - import_tasks: tasks/system-update.yml
@@ -16,3 +17,4 @@
 
    - import_tasks: tasks/config-bashrc.yml
    - import_tasks: tasks/config-git.yml
+   - import_tasks: tasks/config-autostart.yml

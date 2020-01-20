@@ -1,0 +1,17 @@
+---
+
+- name: 'Create folder ~/.config/autostart'
+  file:
+    path: ~/.config/autostart
+    state: directory
+    owner: '{{user}}'
+    mode: u=rwx,g=rwx,o=rx
+
+- name: 'Configure guake'
+  become_user: '{{user}}'
+  copy:
+    src: '{{item}}'
+    dest: ~/.config/autostart
+    owner: '{{user}}'
+    mode: u=rw,g=rw,o=r
+  with_fileglob: '{{base_path}}/files/autostart/*'
