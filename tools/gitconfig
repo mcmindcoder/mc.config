@@ -1,0 +1,64 @@
+[user]
+name = mc
+email = mc.android.developer@gmail.com
+
+[alias]
+c = checkout
+ch = checkout
+chb = checkout -b
+chm = checkout master
+cm = commit
+cam = commit --amend
+cma = commit --amend
+s = status
+b = branch
+ba = branch -a
+t = tag
+p = pull
+mb = merge-base
+prb = pull --rebase
+a = add -A
+f = fetch -p origin
+sh = show
+d = diff
+dfl = diff --name-only
+db = branch -d
+dbo = push origin --delete
+cp = cherry-pick
+cpn = cherry-pick --no-commit
+flist = ls-files | less
+untrack = rm -r --cached
+ap = apply --ignore-space-change --ignore-whitespace
+clr = reset --hard HEAD
+ph = push --tags --set-upstream
+
+l = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short -10
+la = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+lb = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --first-parent -10
+lba = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --first-parent
+lmy = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --author=Chabanov -10
+lamy = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --author=Chabanov
+lg = log -n 3
+log3 = log -n 3
+log5 = log -n 5
+log10 = log -n 10
+files = ls-tree -r --name-only HEAD
+flist = ls-tree -r --name-only HEAD
+
+[core]
+autocrlf = input
+editor = nano
+filemode = false
+excludesfile = ~/.gitignore
+
+[color]
+ui = auto
+		
+[push]
+default = simple
+
+[filter "lfs"]
+clean = git-lfs clean -- %f
+smudge = git-lfs smudge -- %f
+process = git-lfs filter-process
+required = true
