@@ -1,6 +1,6 @@
 ---
 
-- name: 'Run: apt update and upgrade'
+- name: 'Run apt update and upgrade'
   become: true
   apt:
     upgrade: yes

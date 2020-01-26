@@ -1,0 +1,16 @@
+---
+
+# Install PPA to fix layout switcher in xorg-server. 
+# Layout is switched on key press by default. This fix make it switch on key release.
+# https://launchpad.net/~nrbrtx/+archive/ubuntu/xorg-hotkeys
+# https://bugs.launchpad.net/ubuntu/+source/xorg-server/+bug/1683383
+- name: 'Install layout switcher fix ppa'
+  become: true
+  command: add-apt-repository ppa:nrbrtx/xorg-hotkeys -y
+ 
+ 
+- name: 'Run apt update and upgrade'
+  become: true
+  apt:
+    upgrade: yes
+    update_cache: yes

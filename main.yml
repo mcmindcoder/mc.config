@@ -14,8 +14,9 @@
    - import_tasks: tasks/install-keepass.yml
    - import_tasks: tasks/install-common.yml
    - import_tasks: tasks/install-python37.yml
-   - import_tasks: tasks/install-layout-switcher.yml
+   # - import_tasks: tasks/install-layout-switcher.yml
 
+   - import_tasks: tasks/config-layout-switcher.yml
    - import_tasks: tasks/config-bashrc.yml
    - import_tasks: tasks/config-git.yml
    - import_tasks: tasks/config-autostart.yml
