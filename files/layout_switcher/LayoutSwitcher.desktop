@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/master/mc.config/files/layout_switcher/layout_switcher.py
+X-GNOME-Autostart-enabled=true
+NoDisplay=true
+Hidden=false
+Name[en_US]=LayoutSwitcher
+Comment[en_US]=No description
+X-GNOME-Autostart-Delay=0
