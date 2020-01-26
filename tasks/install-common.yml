@@ -32,6 +32,14 @@
     update_cache: yes
 
 
+- name: 'Install mint-backgrounds'
+  apt:
+    package: ['mint-backgrounds-*']
+    state: present
+    allow_unauthenticated: no
+    update_cache: yes
+
+
 - name: 'Uninstall unwanted ubuntu packages'
   apt:
     package: ['seahorse']
