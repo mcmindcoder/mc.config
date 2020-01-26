@@ -17,6 +17,7 @@
    # - import_tasks: tasks/install-layout-switcher.yml
 
    - import_tasks: tasks/config-grub.yml
+   - import_tasks: tasks/config-keyboard-shortcuts.yml
    - import_tasks: tasks/config-layout-switcher.yml
    - import_tasks: tasks/config-bashrc.yml
    - import_tasks: tasks/config-git.yml

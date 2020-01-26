@@ -1,0 +1,4 @@
+---
+
+- name: 'Configure keyboard shortcuts'
+  command: '{{base_path}}/files/keyboard_shortcuts/config_shortcuts.sh'
