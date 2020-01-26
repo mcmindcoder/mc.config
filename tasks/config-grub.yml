@@ -1,0 +1,7 @@
+---
+
+- name: 'Update grub boot menu timeout'
+  replace:
+    path: /boot/grub/grub.cfg
+    regexp: '^(\s+)set timeout=10$'
+    replace: '\1set timeout=3'
