@@ -40,12 +40,16 @@
     update_cache: yes
 
 
-- name: 'Uninstall unwanted ubuntu packages'
-  apt:
-    package: ['seahorse']
-    state: absent
-    allow_unauthenticated: no
-    update_cache: yes
+# - name: 'Uninstall unwanted ubuntu packages'
+#   apt:
+#     package: ['seahorse',
+#               'linuxmint-keyring',
+#               'ubuntu-dbgsym-keyring',
+#               '*gnome-keyring',
+#               'gnome-keyring-*']
+#     state: absent
+#     allow_unauthenticated: no
+#     update_cache: yes
 
 
 # Error packages:
