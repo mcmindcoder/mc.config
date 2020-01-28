@@ -11,15 +11,9 @@ import os
 # Cinamon:  echo $XDG_CURRENT_DESKTOP == X-Cinnamon
 # Mate: echo $XDG_CURRENT_DESKTOP == MATE
 XDG_CURRENT_DESKTOP = os.environ.get('XDG_CURRENT_DESKTOP', 'CINAMON')
-OUT_SCRIPT_NAME = 'config_shortcuts_' + datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + '.sh'
+OUT_SCRIPT_NAME = 'config_guake_' + datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + '.sh'
 # OUT_SCRIPT_NAME = 'config_shortcuts.sh'
-if (XDG_CURRENT_DESKTOP == 'MATE'):
-    SCHEMADIR = 'org.mate.Marco.window-keybindings'
-elif (XDG_CURRENT_DESKTOP == 'X-Cinnamon'):
-    SCHEMADIR = 'org.cinnamon.desktop.keybindings'
-else:
-    SCHEMADIR = 'org.gnome.desktop.wm.keybindings'
-
+SCHEMADIR = 'org.apps.guake.keybindings'
 
 class Shortcut:
     def __init__(self):
