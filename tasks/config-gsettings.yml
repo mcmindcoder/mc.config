@@ -1,0 +1,7 @@
+---
+
+- name: 'Configure keyboard shortcuts'
+  command: '{{base_path}}/files/gsettings/keyboard_shortcuts.sh'
+
+- name: 'Configure text scale'
+  command: '{{base_path}}/files/gsettings/text_scale.sh'
