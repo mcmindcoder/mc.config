@@ -26,7 +26,8 @@
               'pepperflashplugin-nonfree',
               'dconf-editor', 
               'dconf-tools',
-              'encfs']
+              'encfs',
+              'spotify-client']
     state: present
     allow_unauthenticated: no
     update_cache: yes
