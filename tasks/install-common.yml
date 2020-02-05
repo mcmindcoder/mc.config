@@ -28,7 +28,8 @@
               'dconf-tools',
               'encfs',
               'spotify-client',
-              'exiftool']
+              'exiftool',
+              'gimp']
     state: present
     allow_unauthenticated: no
     update_cache: yes
