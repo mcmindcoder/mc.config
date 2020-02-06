@@ -5,7 +5,7 @@
     path: ~/.config/
     state: directory
     owner: '{{user}}'
-    mode: u=rwx,g=rwx,o=rx
+    mode: u=rwx,g=rwx,o-rwx
 
 
 - name: 'Backup ~/.config/user-dirs.dirs'
@@ -18,3 +18,5 @@
     src: '{{ base_path }}/files/user_dirs/user-dirs.dirs'
     path: ~/.config/user-dirs.dirs
     state: link
+    owner: '{{user}}'
+    mode: u=rwx,g=rwx,o-rwx

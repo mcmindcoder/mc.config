@@ -20,5 +20,5 @@
     src: '{{item}}'
     dest: ~/.config/autostart
     owner: '{{user}}'
-    mode: u=rw,g=rw,o=r
+    mode: u=rw,g=rw,o-rwx
   with_fileglob: '{{base_path}}/files/layout_switcher/LayoutSwitcher.desktop'

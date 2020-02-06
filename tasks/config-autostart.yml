@@ -5,7 +5,7 @@
     path: ~/.config/autostart
     state: directory
     owner: '{{user}}'
-    mode: u=rwx,g=rwx,o=rx
+    mode: u=rwx,g=rwx,o-rwx
 
 - name: 'Configure guake'
   become_user: '{{user}}'
@@ -13,5 +13,5 @@
     src: '{{item}}'
     dest: ~/.config/autostart
     owner: '{{user}}'
-    mode: u=rw,g=rw,o=r
+    mode: u=rw,g=rw,o-rwx
   with_fileglob: '{{base_path}}/files/autostart/*'

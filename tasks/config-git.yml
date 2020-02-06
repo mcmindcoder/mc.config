@@ -9,3 +9,5 @@
     src: '{{ base_path }}/files/git/_gitconfig'
     path: ~/.gitconfig
     state: link
+    owner: '{{user}}'
+    mode: u=rwx,g=rwx,o-rwx

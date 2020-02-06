@@ -10,6 +10,8 @@
   copy:
     src: files/sublime/sublime-text.list
     dest: /etc/apt/sources.list.d/sublime-text.list
+    owner: 'root'
+    mode: u=rw,g=r,o=r
 
 
 - name: 'Install sublime-text'

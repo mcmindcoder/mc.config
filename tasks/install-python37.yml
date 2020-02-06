@@ -35,6 +35,8 @@
   copy:
     src: /usr/bin/python
     dest: /usr/bin/_python.bkp
+    owner: '{{user}}'
+    mode: u=rwx,g=rwx,o-rwx
   when: file.stat.exists
 
 - name: 'Remove /usr/bin/python'
@@ -52,6 +54,8 @@
   copy:
     src: /usr/bin/pip
     dest: /usr/bin/_pip.bkp
+    owner: '{{user}}'
+    mode: u=rwx,g=rwx,o-rwx
   when: file.stat.exists
 
 - name: 'Remove /usr/bin/pip'
@@ -69,6 +73,8 @@
   copy:
     src: /usr/local/bin/pip
     dest: /usr/local/bin/_pip.bkp
+    owner: '{{user}}'
+    mode: u=rwx,g=rwx,o-rwx
   when: file.stat.exists
 
 - name: 'Remove /usr/local/bin/pip'
