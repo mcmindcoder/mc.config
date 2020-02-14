@@ -1,0 +1,11 @@
+---
+
+- name: 'Install latest PyTorch'
+  pip:
+    name:
+      - torch
+      - torchvision
+
+- name: 'Test PyTorch installation'
+  command: '{{ base_path }}/files/pytorch/test_pytorch.py'
+  ignore_errors: yes
