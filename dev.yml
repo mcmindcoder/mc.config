@@ -1,0 +1,12 @@
+---
+
+- hosts: "localhost"
+  become: yes
+  vars:
+    base_path: '~/mc.config'
+    user: 'master'
+
+  tasks:
+   - import_tasks: tasks/install-cuda.yml
+   - import_tasks: tasks/install-pytorch.yml
+   - import_tasks: tasks/install-python37.yml

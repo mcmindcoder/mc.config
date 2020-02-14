@@ -1,0 +1,39 @@
+---
+
+# Installs CUDA v9.1 - too old
+# - name: 'Install nvidia-cuda-toolkit'
+#   apt:
+#     package: ['nvidia-cuda-toolkit']
+#     state: present
+#     allow_unauthenticated: no
+#     update_cache: yes
+
+
+- set_fact: cuda_installer='/home/master/Disk/Software/CUDA/cuda_10.1.243_418.87.00_linux.run'
+
+
+- name: 'Install CUDA dependencies'
+  apt:
+    package: ['dkms',
+              'build-essential',
+              'freeglut3',
+              'freeglut3-dev',
+              'libxi-dev',
+              'libxmu-dev']
+    state: present
+    allow_unauthenticated: no
+    update_cache: yes
+
+
+- local_action: stat path={{cuda_installer}}
+  register: file
+
+
+- name: 'Check CUDA installer file'
+  fail: msg='No CUDA installer found at {{cuda_installer}}'
+  when: file.stat.exists == False
+
+
+- name: 'Run cuda installer {{cuda_installer}}'
+  command: gnome-terminal --command {{cuda_installer}}
+

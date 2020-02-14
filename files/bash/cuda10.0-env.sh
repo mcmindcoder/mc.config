@@ -1,0 +1,3 @@
+export CUDADIR=/usr/local/cuda-10.1
+export PATH=$PATH:$CUDADIR/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PATH:$CUDADIR/lib64
