@@ -2,6 +2,7 @@
 
 - name: 'Install latest PyTorch'
   pip:
+    executable: /usr/bin/pip3
     name:
       - torch
       - torchvision

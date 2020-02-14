@@ -1,0 +1,18 @@
+---
+
+# - name: 'Install common ubuntu packages'
+#   apt:
+#     package: []
+#     state: present
+#     allow_unauthenticated: no
+#     update_cache: yes
+
+
+- name: 'Install common pip pacages for developers'
+  pip:
+    executable: /usr/bin/pip3
+    name:
+      - numpy
+      - panda
+      - jupyter
+      - notebook
