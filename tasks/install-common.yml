@@ -1,6 +1,6 @@
 ---
 
-- name: 'Install common ubuntu packages'
+- name: 'Install common linux packages'
   apt:
     package: ['guake', 
               'ssh', 
@@ -27,20 +27,30 @@
               'dconf-editor', 
               'dconf-tools',
               'encfs',
-              'spotify-client',
               'exiftool',
               'gimp']
     state: present
     allow_unauthenticated: no
     update_cache: yes
 
-
-- name: 'Install mint-backgrounds'
+- name: 'Install Ubuntu specific packages'
   apt:
-    package: ['mint-backgrounds-*']
+    package: ['exfat-fuse',
+              'exfat-utils',
+              'gnome-tweaks']
     state: present
     allow_unauthenticated: no
     update_cache: yes
+  when: ansible_distribution == 'LINUX VE Ubuntu'
+
+- name: 'Install Mint specific packages'
+  apt:
+    package: ['mint-backgrounds-*',
+              'spotify-client']
+    state: present
+    allow_unauthenticated: no
+    update_cache: yes
+  when: ansible_distribution == 'LINUX VE Mint'
 
 
 # - name: 'Uninstall unwanted ubuntu packages'
