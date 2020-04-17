@@ -4,7 +4,7 @@
   become: yes
   vars:
     base_path: '~/mc.config'
-    user: 'master'
+    user: 'cyngn'
 
   tasks:
    - shell: tools/linux_distro_name.py
