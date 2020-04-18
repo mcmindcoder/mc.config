@@ -20,10 +20,10 @@ X-GNOME-Autostart-Delay=0
 
 [Desktop Action new-window]
 Name=New Window
-Exec=opera --new-window
+Exec=opera --password-store=basic --new-window
 TargetEnvironment=Unity
 
 [Desktop Action new-private-window]
 Name=New Private Window
-Exec=opera --private
+Exec=opera --password-store=basic --private
 TargetEnvironment=Unity

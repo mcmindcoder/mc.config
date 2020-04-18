@@ -18,3 +18,12 @@
     state: present
     allow_unauthenticated: no
     update_cache: yes
+
+
+- name: 'Update opera launcher'
+  become_user: 'root'
+  copy:
+    src: '{{base_path}}/files/autostart/opera.desktop'
+    dest: /usr/share/applications/opera.desktop
+    owner: 'root'
+    mode: u=rw,g=r,o=r
