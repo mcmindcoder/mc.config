@@ -7,6 +7,20 @@
     user: 'master'
 
   tasks:
+   - shell: tools/linux_distro_name.py
+     register: linux_distro_name
+
+   - set_fact: linux_distro_name="{{ linux_distro_name.stdout }}" 
+  
+   - debug:
+       msg:
+       - "----------------------------"
+       - "ANSIBLE CONFIG"
+       - "user: {{ user }}"
+       - "linux: {{ linux_distro_name }}"
+       - "----------------------------"
+
+
    - import_tasks: tasks/system-update.yml
 
    - import_tasks: tasks/install-opera.yml
