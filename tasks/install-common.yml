@@ -33,15 +33,18 @@
     allow_unauthenticated: no
     update_cache: yes
 
+
 - name: 'Install Ubuntu specific packages'
   apt:
     package: ['exfat-fuse',
               'exfat-utils',
-              'gnome-tweaks']
+              'gnome-tweaks',
+              'xdg-desktop-portal']
     state: present
     allow_unauthenticated: no
     update_cache: yes
-  when: ansible_distribution == 'LINUX VE Ubuntu'
+  when: linux_distro_name == 'ubuntu'
+
 
 - name: 'Install Mint specific packages'
   apt:
@@ -50,7 +53,7 @@
     state: present
     allow_unauthenticated: no
     update_cache: yes
-  when: ansible_distribution == 'LINUX VE Mint'
+  when: linux_distro_name == 'mint'
 
 
 # - name: 'Uninstall unwanted ubuntu packages'
