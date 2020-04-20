@@ -21,7 +21,7 @@ sudo find /usr/local/lib/python3.5/dist-packages/ -type d -exec chown root:staff
 sudo chown -R $USER:$USER ~/.config
 
 #ssh config
+sudo chown -R $USER:$USER ~/.ssh
 chmod 600 ~/.ssh/*
-chown $USER ~/.ssh/*
 
 echo Permissions updated
