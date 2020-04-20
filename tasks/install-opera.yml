@@ -27,3 +27,10 @@
     dest: /usr/share/applications/opera.desktop
     owner: 'root'
     mode: u=rw,g=r,o=r
+
+
+- name: 'Install opera launcher'
+  command: xdg-desktop-menu install --novendor /usr/share/applications/opera.desktop
+  ignore_errors: yes
+  when: linux_distro_name == 'ubuntu'
+    
