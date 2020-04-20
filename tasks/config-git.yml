@@ -1,8 +1,14 @@
 ---
 
+- stat: path=~/.gitconfig
+  register: links
+
+
 - name: 'Backup .gitcongig'
   command: mv ~/.gitconfig ~/.gitconfig.bkp
   ignore_errors: yes
+  when: links.stat is defined and links.stat.islnk is not defined
+
 
 - name: 'Configure .gitconfig'
   file:
