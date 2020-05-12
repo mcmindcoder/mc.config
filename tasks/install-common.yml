@@ -28,6 +28,7 @@
               'dconf-tools',
               'encfs',
               'exiftool',
+              'htop',
               'gimp']
     state: present
     allow_unauthenticated: no
