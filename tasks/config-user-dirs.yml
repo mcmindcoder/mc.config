@@ -15,7 +15,7 @@
 
 - name: 'Configure user-dirs'
   file:
-    src: '{{ base_path }}/files/user_dirs/user-dirs.dirs'
+    src: '{{base_path}}/files/user_dirs/user-dirs.dirs'
     path: ~/.config/user-dirs.dirs
     state: link
     owner: '{{user}}'

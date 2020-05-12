@@ -18,15 +18,46 @@
     allow_unauthenticated: no
     update_cache: yes
 
-# Does not work properly
-# FixMe: Resulting menu item has no icon
 
-# - name: 'Install keepass menu launcher'
-#   copy:
-#     src: files/keepass/keepass.desktop
-#     dest: /usr/share/applications/keepass.desktop
-#     owner: root
-#     group: root
-#     mode: u=rw,g=r,o=r
+- name: 'Remove existing /usr/share/applications/keepass.desktop'
+  file:
+    state: absent
+    path: /usr/share/applications/keepass.desktop
+    
 
+- name: 'Create file /usr/share/applications/keepass.desktop'
+  file:
+    path: /usr/share/applications/keepass.desktop
+    state: touch
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
+
+
+- name: 'Update /usr/share/applications/keepass.desktop'
+  blockinfile:
+    path: /usr/share/applications/keepass.desktop
+    marker: ''
+    block: |
+      [Desktop Entry]
+      Name=KeePass
+      GenericName=Password Manager
+      Exec=/home/{{user}}/mc.config/files/keepass/keepassxc %f
+      Icon=/home/{{user}}/mc.config/files/keepass/keepassxc.png
+      StartupNotify=true
+      Terminal=false
+      Type=Application
+      Version=1.0
+      Categories=Utility;Security;Qt;
+      MimeType=application/x-keepass2;
+
+
+- name: 'Configure keepassxc configs'
+  file:
+    src: '{{ base_path }}/keepass/keepassxc_configs'
+    path: ~/.config/keepassxc
+    state: link
+    owner: '{{user}}'
+    mode: u=rwx,g=rwx,o-rwx
+  ignore_errors: True
     
