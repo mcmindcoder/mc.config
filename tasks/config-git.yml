@@ -16,4 +16,19 @@
     path: ~/.gitconfig
     state: link
     owner: '{{user}}'
-    mode: u=rwx,g=rwx,o-rwx
+    mode: u=rw,g=rw,o-rwx
+
+
+- name: 'Backup .gitignore'
+  command: mv ~/.gitignore ~/.gitignore.bkp
+  ignore_errors: yes
+  when: links.stat is defined and links.stat.islnk is not defined
+
+
+- name: 'Configure .gitignore'
+  file:
+    src: '{{ base_path }}/files/git/_gitignore'
+    path: ~/.gitignore
+    state: link
+    owner: '{{user}}'
+    mode: u=rw,g=rw,o-rwx
