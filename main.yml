@@ -10,14 +10,15 @@
    - shell: tools/linux_distro_name.py
      register: linux_distro_name
 
-   - set_fact: linux_distro_name="{{ linux_distro_name.stdout }}" 
+   - set_fact: linux_distro_name="{{linux_distro_name.stdout}}" 
   
    - debug:
        msg:
        - "----------------------------"
        - "ANSIBLE CONFIG"
-       - "user: {{ user }}"
-       - "linux: {{ linux_distro_name }}"
+       - "user: {{user}}"
+       - "base dir: {{playbook_dir}}"
+       - "linux: {{linux_distro_name}}"
        - "----------------------------"
 
 
