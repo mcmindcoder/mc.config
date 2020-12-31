@@ -24,12 +24,12 @@
               'gir1.2-gtop-2.0', 
               'blender', 
               'pepperflashplugin-nonfree',
-              'dconf-editor', 
-              'dconf-tools',
+              'dconf-editor',
               'encfs',
               'exiftool',
               'htop',
-              'gimp']
+              'gimp',
+              'python3-apt']
     state: present
     allow_unauthenticated: no
     update_cache: yes
