@@ -1,10 +1,10 @@
 ---
 
 - hosts: "localhost"
-  become: yes
+  become: no
   vars:
-    base_path: '~/mc.config'
-    user: 'master'
+    base_path: "{{playbook_dir}}"
+    user: "{{lookup('env', 'USER')}}"
 
   tasks:
    - shell: tools/linux_distro_name.py
@@ -17,7 +17,7 @@
        - "----------------------------"
        - "ANSIBLE CONFIG"
        - "user: {{user}}"
-       - "base dir: {{playbook_dir}}"
+       - "base dir: {{base_path}}"
        - "linux: {{linux_distro_name}}"
        - "----------------------------"
 
