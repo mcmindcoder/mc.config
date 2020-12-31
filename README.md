@@ -14,8 +14,14 @@ pip3 install ansible
 
 
 ### Run
+Use main.sh script to setup generic environment
 <pre>
 git clone git@github.com:mcmindcoder/mc.config.git
 cd mc.config
 ./main.sh
+</pre>
+
+Use dev.sh script to setup developer environment
+<pre>
+./dev.sh
 </pre>
