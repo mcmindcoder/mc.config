@@ -54,7 +54,7 @@
 
 - name: 'Configure keepassxc configs'
   file:
-    src: '{{ base_path }}/keepass/keepassxc_configs'
+    src: '{{base_path}}/keepass/keepassxc_configs'
     path: ~/.config/keepassxc
     state: link
     owner: '{{user}}'

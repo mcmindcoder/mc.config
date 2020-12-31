@@ -12,7 +12,7 @@
 
 - name: 'Configure .gitconfig'
   file:
-    src: '{{ base_path }}/files/git/_gitconfig'
+    src: '{{base_path}}/files/git/_gitconfig'
     path: ~/.gitconfig
     state: link
     owner: '{{user}}'
@@ -27,7 +27,7 @@
 
 - name: 'Configure .gitignore'
   file:
-    src: '{{ base_path }}/files/git/_gitignore'
+    src: '{{base_path}}/files/git/_gitignore'
     path: ~/.gitignore
     state: link
     owner: '{{user}}'

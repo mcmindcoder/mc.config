@@ -29,7 +29,7 @@
     mode: u=rw,g=r,o=r
 
 
-- name: 'Install opera launcher'
+- name: 'Install xdg-desktop-menu'
   command: xdg-desktop-menu install --novendor /usr/share/applications/opera.desktop
   ignore_errors: yes
   when: linux_distro_name == 'ubuntu'
