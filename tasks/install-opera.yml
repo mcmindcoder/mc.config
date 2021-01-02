@@ -1,6 +1,7 @@
 ---
 
 - name: 'Add apt key for opera'
+  become: true
   apt_key:
     file: files/opera/opera_pub_key.gpg
     state: present
@@ -21,7 +22,7 @@
 
 
 - name: 'Update opera launcher'
-  become_user: 'root'
+  become: true
   copy:
     src: '{{base_path}}/files/autostart/opera.desktop'
     dest: /usr/share/applications/opera.desktop

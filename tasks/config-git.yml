@@ -15,8 +15,6 @@
     src: '{{base_path}}/files/git/_gitconfig'
     path: ~/.gitconfig
     state: link
-    owner: '{{user}}'
-    mode: u=rw,g=rw,o-rwx
 
 
 - name: 'Backup .gitignore'
@@ -30,5 +28,3 @@
     src: '{{base_path}}/files/git/_gitignore'
     path: ~/.gitignore
     state: link
-    owner: '{{user}}'
-    mode: u=rw,g=rw,o-rwx

@@ -18,5 +18,3 @@
     src: '{{base_path}}/files/user_dirs/user-dirs.dirs'
     path: ~/.config/user-dirs.dirs
     state: link
-    owner: '{{user}}'
-    mode: u=rwx,g=rwx,o-rwx

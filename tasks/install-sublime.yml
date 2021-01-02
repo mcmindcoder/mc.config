@@ -1,6 +1,7 @@
 ---
 
 - name: 'Add apt key for sublime'
+  become: true
   apt_key:
     file: files/sublime/sublimehq-pub.gpg
     state: present
