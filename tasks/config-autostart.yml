@@ -8,7 +8,7 @@
     mode: u=rwx,g=rwx,o-rwx
 
 - name: 'Copy autostart launchers'
-  become_user: '{{user}}'
+  become: yes
   copy:
     src: '{{item}}'
     dest: ~/.config/autostart

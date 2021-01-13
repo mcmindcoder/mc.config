@@ -1,0 +1,9 @@
+---
+
+- name: 'Configure /etc/fuse.conf'
+  become: yes
+  ansible.builtin.lineinfile:
+    path: /etc/fuse.conf
+    regexp: '^#user_allow_other'
+    line: user_allow_other
+    create: no

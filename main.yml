@@ -29,6 +29,7 @@
    - import_tasks: tasks/install-keepass.yml
    - import_tasks: tasks/install-common.yml
 
+   - import_tasks: tasks/config-encfs.yml
    - import_tasks: tasks/config-grub.yml
    - import_tasks: tasks/config-gsettings.yml
    - import_tasks: tasks/config-layout-switcher.yml
