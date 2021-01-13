@@ -7,7 +7,7 @@
     owner: '{{user}}'
     mode: u=rwx,g=rwx,o-rwx
 
-- name: 'Configure guake'
+- name: 'Copy autostart launchers'
   become_user: '{{user}}'
   copy:
     src: '{{item}}'
