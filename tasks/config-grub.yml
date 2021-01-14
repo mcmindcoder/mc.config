@@ -1,7 +1,15 @@
 ---
 
 - name: 'Update grub boot menu timeout'
+  become: yes
   replace:
     path: /boot/grub/grub.cfg
     regexp: '^(\s+)set timeout=10$'
     replace: '\1set timeout=3'
+
+- name: 'Update grub startup screen resolution'
+  become: yes
+  replace:
+    path: /boot/grub/grub.cfg
+    regexp: '^(\s+)set gfxmode=auto$'
+    replace: '\1set gfxmode=640x480'
