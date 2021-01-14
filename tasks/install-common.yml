@@ -4,6 +4,7 @@
   apt:
     package: ['guake', 
               'ssh', 
+              'mc',
               'sshfs', 
               'xcalib', 
               'sublime-text', 
