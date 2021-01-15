@@ -41,6 +41,7 @@
     package: ['exfat-fuse',
               'exfat-utils',
               'gnome-tweaks',
+              'gnome-shell-extension-dash-to-panel',
               'xdg-desktop-portal']
     state: present
     allow_unauthenticated: no
