@@ -53,12 +53,16 @@
       MimeType=application/x-keepass2;
 
 
+- name: 'Remove existing ~/.config/keepassxc'
+  file:
+    state: absent
+    path: ~/.config/keepassxc
+
+
 - name: 'Configure keepassxc configs'
   file:
     src: '{{base_path}}/keepass/keepassxc_configs'
     path: ~/.config/keepassxc
     state: link
-    owner: '{{user}}'
-    mode: u=rwx,g=rwx,o-rwx
   ignore_errors: True
     
