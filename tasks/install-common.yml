@@ -30,6 +30,7 @@
               'exiftool',
               'htop',
               'gimp',
+              'hexedit',
               'python3-apt']
     state: present
     allow_unauthenticated: no
