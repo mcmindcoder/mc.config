@@ -34,4 +34,18 @@
   command: xdg-desktop-menu install --novendor /usr/share/applications/opera.desktop
   ignore_errors: yes
   when: linux_distro_name == 'ubuntu'
-    
+
+
+- name: 'Backup libffmpeg.so'
+  become: true
+  copy:
+    src: /usr/lib/x86_64-linux-gnu/opera/libffmpeg.so
+    dest: /usr/lib/x86_64-linux-gnu/opera/libffmpeg.so.bkp
+
+
+- name: 'Replace libffmpeg.so'
+  become: true
+  copy:
+    src: files/opera/libffmpeg.so
+    dest: /usr/lib/x86_64-linux-gnu/opera/libffmpeg.so
+
