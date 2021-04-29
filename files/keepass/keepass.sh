@@ -1,2 +1,4 @@
 #!/bin/sh
-./keepassxc
+BASEDIR=$(dirname "$0")
+echo $BASEDIR
+$BASEDIR/keepassxc
