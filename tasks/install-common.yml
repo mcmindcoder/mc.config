@@ -25,7 +25,6 @@
               'blender', 
               'pepperflashplugin-nonfree',
               'dconf-editor', 
-              'dconf-tools',
               'encfs',
               'exiftool',
               'gimp']
