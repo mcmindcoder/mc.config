@@ -37,3 +37,4 @@
    - import_tasks: tasks/config-git.yml
    - import_tasks: tasks/config-autostart.yml
    - import_tasks: tasks/config-user-dirs.yml
+   - import_tasks: tasks/config-ssh.yml

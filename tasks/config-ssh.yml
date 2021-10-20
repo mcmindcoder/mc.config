@@ -1,0 +1,13 @@
+---
+
+- name: 'Configure ssh'
+  ignore_errors: yes
+  lineinfile:
+    path: ~/.ssh/config
+    line: "{{ item.line }}"
+    insertbefore: EOF
+    create: no
+  loop:
+    - { line: ' ' }
+    - { line: 'Host *' }
+    - { line: '  HostKeyAlgorithms=+ssh-dss' }
