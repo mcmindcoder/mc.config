@@ -1,0 +1,14 @@
+---
+
+- name: 'Stop printer autodetection service [cups-browsed]'
+  become: yes
+  command: systemctl stop cups-browsed
+  ignore_errors: yes
+  
+- name: 'Disable printer autodetection service [cups-browsed]'
+  become: yes
+  command: systemctl disable cups-browsed
+  ignore_errors: yes
+  
+
+
