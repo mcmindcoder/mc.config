@@ -6,7 +6,7 @@
     path: ~/.ssh/config
     line: "{{ item.line }}"
     insertbefore: EOF
-    create: no
+    create: yes
   loop:
     - { line: ' ' }
     - { line: 'Host *' }
