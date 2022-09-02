@@ -2,6 +2,9 @@
 
 echo Start updating permissions...
 
+# home
+sudo chown -R $USER:$USER $HOME
+
 # apt
 sudo chmod u+rwx,go+rx,go-w /etc/apt/sources.list.d/
 sudo chmod u+rw,u-x,go+r,go-wx /etc/apt/sources.list.d/*
