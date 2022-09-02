@@ -55,3 +55,6 @@ ui = auto
 		
 [push]
 default = simple
+
+[safe]
+directory = /home/master/mc.config
