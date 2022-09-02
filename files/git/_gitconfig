@@ -14,7 +14,7 @@ s = status
 b = branch
 ba = branch -a
 t = tag
-p = pull
+pl = pull
 prb = pull --rebase
 a = add -A
 f = fetch -p origin
@@ -29,7 +29,7 @@ flist = ls-files | less
 untrack = rm -r --cached
 ap = apply --ignore-space-change --ignore-whitespace
 clr = reset --hard HEAD
-push = push --tags --set-upstream
+p = push --tags --set-upstream
 
 l = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short -10
 la = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
@@ -55,3 +55,6 @@ ui = auto
 		
 [push]
 default = simple
+
+[safe]
+directory = /home/master/mc.config
