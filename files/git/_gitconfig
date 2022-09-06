@@ -1,57 +1,57 @@
 [user]
-	name = mc
-	email = mc.mindcoder@gmail.com
+name = mchabanov
+email = mchabanov@cyngn.com
 
 [alias]
-	c = checkout
-	ch = checkout
-	chb = checkout -b
-	chm = checkout master
-	cm = commit
-	cam = commit --amend
-	cma = commit --amend
-	s = status
-	b = branch
-	ba = branch -a
-	t = tag
-	prb = pull --rebase
-	a = add -A
-	f = fetch
-	sh = show
-	d = diff
-	dn = diff --name-only
-	db = branch -d
-	dbo = push origin --delete
-	cp = cherry-pick
-	cpn = cherry-pick --no-commit
-	flist = ls-files | less
-	untrack = rm -r --cached
-	ap = apply --ignore-space-change --ignore-whitespace
-	clr = reset --hard HEAD
-	p = push --set-upstream
+c = checkout
+ch = checkout
+chb = checkout -b
+chm = checkout master
+cm = commit
+cam = commit --amend
+cma = commit --amend
+s = status
+b = branch
+ba = branch -a
+t = tag
+pl = pull
+prb = pull --rebase
+a = add -A
+f = fetch -p origin
+sh = show
+d = diff
+dn = diff --name-only
+db = branch -d
+dbo = push origin --delete
+cp = cherry-pick
+cpn = cherry-pick --no-commit
+flist = ls-files | less
+untrack = rm -r --cached
+ap = apply --ignore-space-change --ignore-whitespace
+clr = reset --hard HEAD
+p = push --tags --set-upstream
 
-	l = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short -10
-	la = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-	lb = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --first-parent -10
-	lba = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --first-parent
-	lmy = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --author=Chabanov -10
-	lamy = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --author=Chabanov
-	lg = log -n 3
-	log3 = log -n 3
-	log5 = log -n 5
-	log10 = log -n 10
-	files = ls-tree -r --name-only HEAD
-	flist = ls-tree -r --name-only HEAD
-	dfl = diff --name-only
+l = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short -10
+la = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+lb = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --first-parent -10
+lba = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --first-parent
+lmy = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --author=Chabanov -10
+lamy = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --author=Chabanov
+lg = log -n 3
+log3 = log -n 3
+log5 = log -n 5
+log10 = log -n 10
+files = ls-tree -r --name-only HEAD
+flist = ls-tree -r --name-only HEAD
 
 [core]
-	autocrlf = input
-	editor = nano
-	filemode = false
-	excludesfile = ~/.gitignore
+autocrlf = input
+editor = nano
+filemode = false
+excludesfile = ~/.gitignore
 
 [color]
-	ui = auto
+ui = auto
 		
 [push]
 	default = simple
