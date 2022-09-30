@@ -5,12 +5,14 @@
 
 
 - name: 'Backup .gitcongig'
+  become_user: '{{user}}'
   command: mv ~/.gitconfig ~/.gitconfig.bkp
   ignore_errors: yes
   when: links.stat is defined and links.stat.islnk is not defined
 
 
 - name: 'Configure .gitconfig'
+  become_user: '{{user}}'
   file:
     src: '{{ base_path }}/files/git/_gitconfig'
     path: ~/.gitconfig

@@ -1,6 +1,7 @@
 ---
 
 - name: 'Create folder ~/.config/'
+  become_user: '{{user}}'
   file:
     path: ~/.config/
     state: directory
@@ -9,6 +10,7 @@
 
 
 - name: 'Backup ~/.config/user-dirs.dirs'
+  become_user: '{{user}}'
   ignore_errors: True
   command: mv ~/.config/user-dirs.dirs ~/.config/user-dirs.dirs.bkp
 
@@ -20,3 +22,4 @@
     state: link
     owner: '{{user}}'
     mode: u=rwx,g=rwx,o-rwx
+  become_user: '{{user}}'
