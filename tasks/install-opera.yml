@@ -1,15 +1,18 @@
 ---
 
-- name: 'Add apt key for opera'
-  apt_key:
-    file: files/opera/opera_pub_key.gpg
-    state: present
-
 
 - name: 'Install opera source list file'
   copy:
     src: files/opera/opera.list
     dest: /etc/apt/sources.list.d/opera.list
+
+
+- name: 'Setup gpg key for opera'
+  copy:
+    src: files/opera/opera_pub_key.gpg
+    dest: /usr/share/keyrings/opera_pub_key.gpg
+    owner: 'root'
+    mode: u=rw,g=r,o=r
 
 
 - name: 'Install opera browser'
@@ -21,9 +24,8 @@
 
 
 - name: 'Update opera launcher'
-  become_user: 'root'
   copy:
-    src: '{{base_path}}/files/autostart/opera.desktop'
+    src: files/autostart/opera.desktop
     dest: /usr/share/applications/opera.desktop
     owner: 'root'
     mode: u=rw,g=r,o=r
