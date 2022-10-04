@@ -37,16 +37,42 @@
   when: linux_distro_name == 'ubuntu'
 
 
+- stat: path=/usr/lib/x86_64-linux-gnu/opera/libffmpeg.so
+  register: links
+
+
 - name: 'Backup libffmpeg.so'
   become: true
-  copy:
-    src: /usr/lib/x86_64-linux-gnu/opera/libffmpeg.so
-    dest: /usr/lib/x86_64-linux-gnu/opera/libffmpeg.so.bkp
+  command: mv /usr/lib/x86_64-linux-gnu/opera/libffmpeg.so /usr/lib/x86_64-linux-gnu/opera/libffmpeg.so.bkp
+  ignore_errors: yes
+  when: links.stat is defined and links.stat.islnk is not defined
 
 
-- name: 'Replace libffmpeg.so'
+- name:  'Install chromium-ffmpeg'
+  community.general.snap:
+    name:
+      - chromium-ffmpeg
+
+
+- name: 'Find latest version on chromium-ffmpeg'
+  ansible.builtin.find:
+    paths: /snap/chromium-ffmpeg/current/
+    file_type: directory
+    patterns: 'chromium-ffmpeg-*'
+  register: output
+
+
+- name: 'Find latest libffmpeg.so version'
+  set_fact:
+    file_name: "{{ item.path }}/chromium-ffmpeg/libffmpeg.so"
+  with_items: "{{ output.files }}"
+
+- debug: var=file_name
+
+
+- name: 'Update opera libffmpeg.so version'
   become: true
-  copy:
-    src: files/opera/libffmpeg.so
-    dest: /usr/lib/x86_64-linux-gnu/opera/libffmpeg.so
-
+  file:
+    src: '{{file_name}}'
+    path: /usr/lib/x86_64-linux-gnu/opera/libffmpeg.so
+    state: link
