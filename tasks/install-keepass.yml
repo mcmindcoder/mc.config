@@ -38,15 +38,16 @@
   blockinfile:
     path: /usr/share/applications/keepass.desktop
     marker: ''
-    owner: '{{user}}'
+    owner: root
     block: |
       [Desktop Entry]
       Name=KeePass
       GenericName=Password Manager
-      Exec=/home/{{user}}/mc.config/files/keepass/keepassxc.sh %f
+      Exec=/home/{{user}}/mc.config/files/keepass/keepassxc %f
       Icon=/home/{{user}}/mc.config/files/keepass/keepassxc.png
       StartupNotify=true
       Terminal=false
       Type=Application
       Version=1.0
       Categories=Utility;Security;Qt;
+      MimeType=application/x-keepass2;
