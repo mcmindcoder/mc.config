@@ -5,12 +5,11 @@ sleep 0.5
 guake -r mc
 guake -e pwd
 guake -e 'mc'
-guake -e '~/tools/clion-2020.1.1/bin/clion.sh &'
 
 guake --new-tab=tab1 -r roscore
 guake -e pwd
 guake -e 'roscore &'
-guake -e '~/tools/clion-2020.1.1/bin/clion.sh &'
+guake -e 'clion &'
 
 guake --new-tab=tab2 -r vpn
 guake -e pwd
