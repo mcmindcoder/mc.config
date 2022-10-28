@@ -17,7 +17,7 @@ t = tag
 pl = pull
 prb = pull --rebase
 a = add -A
-f = fetch -p origin
+f = fetch
 sh = show
 d = diff
 dn = diff --name-only
@@ -43,6 +43,7 @@ log5 = log -n 5
 log10 = log -n 10
 files = ls-tree -r --name-only HEAD
 flist = ls-tree -r --name-only HEAD
+dfl = diff --name-only
 
 [core]
 autocrlf = input
@@ -54,8 +55,8 @@ excludesfile = ~/.gitignore
 ui = auto
 		
 [push]
-	default = simple
+default = simple
 
 [safe]
-	directory = /home/master/mc.config
-	default = simple
+directory = /home/master/mc.config
+default = simple
