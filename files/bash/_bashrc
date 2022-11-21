@@ -4,6 +4,9 @@ export PATH='.:'$PATH
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+# Set brightness
+xrandr --output `xrandr | grep ' connected' | cut -d' ' -f1` --brightness .5
  
 # Init CUDA env
 source ~/mc.config/files/bash/cuda10.0-env.sh 
