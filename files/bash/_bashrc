@@ -6,7 +6,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # Set brightness
-xrandr --output `xrandr | grep ' connected' | cut -d' ' -f1` --brightness .5
+xrandr --output `xrandr | grep ' connected' | cut -d' ' -f1` --brightness .8
  
 # Init CUDA env
 source ~/mc.config/files/bash/cuda10.0-env.sh 
