@@ -1,18 +1,23 @@
 ---
 
 
+- name: Download opera archive.key
+  get_url:
+    url: https://deb.opera.com/archive.key
+    dest: files/opera/archive.key
+
+
+- name: Use apt-key with opera key
+  ansible.builtin.command:
+    cmd: apt-key add files/opera/archive.key
+  args:
+    warn: false
+
+
 - name: 'Install opera source list file'
   copy:
     src: files/opera/opera.list
     dest: /etc/apt/sources.list.d/opera.list
-
-
-- name: 'Setup gpg key for opera'
-  copy:
-    src: files/opera/opera_pub_key.gpg
-    dest: /usr/share/keyrings/opera_pub_key.gpg
-    owner: 'root'
-    mode: u=rw,g=r,o=r
 
 
 - name: 'Install opera browser'
@@ -41,11 +46,21 @@
   register: links
 
 
+- name: Get custom date and time
+  set_fact:
+      file_datetime: "{{ '%Y-%m-%d_%H-%M-%S' | strftime }}"
+
+
+- name: Display custom formatted date and time
+  debug:
+     msg: "Backup file date and time: {{ file_datetime }}"
+
+
 - name: 'Backup libffmpeg.so'
   become: true
-  command: mv /usr/lib/x86_64-linux-gnu/opera/libffmpeg.so /usr/lib/x86_64-linux-gnu/opera/libffmpeg.so.bkp
+  command: mv /usr/lib/x86_64-linux-gnu/opera/libffmpeg.so /usr/lib/x86_64-linux-gnu/opera/libffmpeg.so.{{file_datetime}}.bkp
   ignore_errors: yes
-  when: links.stat is defined and links.stat.islnk is not defined
+  when: links.stat.exists and not links.stat.islnk
 
 
 - name:  'Install chromium-ffmpeg'
